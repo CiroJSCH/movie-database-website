@@ -1,5 +1,12 @@
 import type { Metadata } from 'next';
+import Header from '@/components/Header';
 import './globals.css';
+import { Poppins } from '@next/font/google';
+
+const poppins = Poppins({
+  weight: ['300', '400', '500', '700'],
+  subsets: ['latin']
+});
 
 export const metadata: Metadata = {
   title: 'IMBb Clone',
@@ -32,8 +39,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
-      <body>{children}</body>
+    <html lang='en' className='theme-dark'>
+      <body className={poppins.className}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
