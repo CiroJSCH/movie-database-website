@@ -4,8 +4,6 @@ import { useState } from 'react';
 
 import { RiMovie2Line, RiTvLine, RiMovieLine } from 'react-icons/ri';
 import { MdOutlineLocalMovies, MdOutlineFavoriteBorder } from 'react-icons/md';
-import { BiMenuAltRight } from 'react-icons/bi';
-import { GrClose } from 'react-icons/gr';
 import { AiOutlineMenuFold, AiOutlineMenuUnfold } from 'react-icons/ai';
 
 const liStyleMobile =
@@ -21,13 +19,13 @@ const MobileMenu = () => {
   return (
     <>
       <div
-        className='rounded-full bg-secondary-400 z-[50] absolute bottom-2 right-2 text-[35px] text-txt p-1 cursor-pointer hover:bg-secondary-500 transition-colors duration-300 md:hidden'
+        className='rounded-full bg-secondary-400 z-[50] absolute bottom-2 right-2 text-[35px] text-white p-1 cursor-pointer hover:bg-secondary-500 transition-colors duration-300 md:hidden'
         onClick={toggleMenu}
       >
         {isOpenMenu ? <AiOutlineMenuUnfold /> : <AiOutlineMenuFold />}
       </div>
       <div
-        className={`fixed right-0 top-0 flex flex-col justify-around w-[280px] h-screen z-[40] bg-background border-l-2 border-l-secondary-500 px-2 lg:hidden ${
+        className={`fixed right-0 top-0 flex flex-col justify-around w-[280px] h-screen z-[40] bg-background-600 border-l-2 border-l-secondary-500 px-2 lg:hidden ${
           isOpenMenu ? 'translate-x-0' : 'translate-x-[280px]'
         } ease-in-out duration-300`}
       >
@@ -50,7 +48,7 @@ const MobileMenu = () => {
           </li>
         </ul>
         <div className='flex flex-col items-center gap-3'>
-          <div className='flex justify-center items-center bg-primary-500 text-txt gap-2 text-[30px] rounded-sm px-3'>
+          <div className='flex justify-center items-center bg-primary-500 text-white gap-2 text-[30px] rounded-sm px-3'>
             <RiMovie2Line />
             <span>IMBb</span>
           </div>

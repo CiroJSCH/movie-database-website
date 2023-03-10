@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+
+  :root[class="dark"] {
+    --primary-400: #088dc2;
+    --primary-500: #0875A1;
+    --primary-600: #03658C;
+    --primary-700: #044761;
+    --secondary-400: #0dcad4;
+    --secondary-500: #12aab3;
+    --alternative: #707373;
+    --background-500: #23272F;
+    --background-600: #171718;
+    --txt: #FAFAFA;
+  }
+
+  :root {
+    --primary-400: #1F3FEF;
+    --primary-500: #132cba;
+    --primary-600: #1338a8;
+    --primary-700: #072378;
+    --secondary-400: #2D70FF;
+    --secondary-500: #1338a8;
+    --alternative: #EFEFEF;
+    --background-500: #FAFAFA;
+    --background-600: #088dc2;
+    --txt: #0A0A0A;
+  }
+}

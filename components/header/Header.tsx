@@ -1,7 +1,5 @@
 import { RiMovie2Line } from 'react-icons/ri';
-import {
-  MdOutlineLightMode,
-} from 'react-icons/md';
+import DarkModeSwitch from './DarkModeSwitch';
 import MobileMenu from './MobileMenu';
 
 const Header = () => {
@@ -9,9 +7,9 @@ const Header = () => {
     'cursor-pointer hover:text-primary-500 transition-colors duration-300 text-[17px] leading-[25px]';
   return (
     <>
-      <nav className='fixed top-0 bg-background w-full drop-shadow-lg border-b-primary-400 border-b-2'>
+      <nav className='fixed top-0 bg-background-600 w-full drop-shadow-lg border-b-primary-400 border-b-2'>
         <div className='p-4 flex justify-between items-center max-w-[1440px] mx-auto'>
-          <div className='flex items-center bg-primary-500 text-txt max-w-[130px] justify-center gap-2 text-[30px] rounded-sm cursor-pointer hover:bg-primary-600 transition-colors duration-300 px-1'>
+          <div className='flex items-center bg-primary-500 max-w-[130px] justify-center gap-2 text-[30px] rounded-sm cursor-pointer hover:bg-primary-600 transition-colors duration-300 px-1 text-white'>
             <RiMovie2Line />
             <span>IMBb</span>
           </div>
@@ -23,9 +21,7 @@ const Header = () => {
               <li className={liStyle}>Favorites</li>
             </ul>
           </div>
-          <div className='text-txt flex gap-5 text-[30px]'>
-            <MdOutlineLightMode className='cursor-pointer hover:text-secondary-400 transition-colors duration-300' />
-          </div>
+          <DarkModeSwitch /> 
         </div>
       </nav>
       <MobileMenu />
