@@ -1,5 +1,6 @@
 import { IMovie } from '@/app/models/movie.model';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface IProps {
   movie: IMovie;
@@ -19,7 +20,7 @@ const colorBasedOnVote = (vote: number) => {
 
 const CarouselCard = ({ movie }: IProps) => {
   return (
-    <div className='w-[200px] h-[300px] relative cursor-pointer'>
+    <Link className='w-[200px] h-[300px] relative cursor-pointer' href={`/movie/${movie.id}`}>
       <div className='h-full w-full relative z-[40]'>
         <Image
           alt='movie banner'
@@ -38,7 +39,7 @@ const CarouselCard = ({ movie }: IProps) => {
       >
         <span className='font-bold'>{movie.vote_average.toFixed(2)}</span>
       </div>
-    </div>
+    </Link>
   );
 };
 

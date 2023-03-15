@@ -7,7 +7,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import CarouselCard from './CarouselCard';
 import { IMovie } from '@/app/models/movie.model';
 import { BiRightArrowAlt } from 'react-icons/bi';
-
+import Link from 'next/link';
 interface IProps {
   movies: IMovie[];
   title: string;
@@ -75,7 +75,7 @@ const Carousel = ({ movies, title }: IProps) => {
           {title}
         </h3>
         <div className='flex gap-2 items-center text-primary-600 text-[15px] md:text-[17px] lg:text-[19px] cursor-pointer hover:text-txt transition-all duration-300 hover:translate-x-1'>
-          <p>View all</p>
+          <Link href={`${title === "Populars 🌟" ? "/popular" : "/top-rated"}`}>View all</Link>
           <BiRightArrowAlt />
         </div>
       </div>
