@@ -9,12 +9,13 @@ interface IProps {
 
 const Banner = ({ movie }: IProps) => {
   return (
-    <div className='h-[380px] md:h-[450px] lg:h-[650px] relative overflow-x-hidden mb-10'>
+    <div className='h-[380px] md:h-[450px] lg:h-[750px] relative overflow-x-hidden mb-10'>
       <Image
         alt='movie banner'
         src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
         className='object-fit'
         fill
+        priority
       />
       <div className='absolute bottom-0 bg-[rgba(0,0,0,0.3)] w-full p-3 lg:p-5 xl:px-10'>
         <h1 className='text-primary-400 font-bold text-[30px] md:text-[45px] lg:text-[52px]'>

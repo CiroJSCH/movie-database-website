@@ -3,6 +3,7 @@ import Header from '@/components/header/Header';
 import './globals.css';
 import { Poppins } from '@next/font/google';
 import ThemeProviders from './Providers/ThemeProviders';
+import Footer from '@/components/home/Footer';
 
 const poppins = Poppins({
   weight: ['300', '400', '500', '700'],
@@ -41,10 +42,11 @@ export default function RootLayout({
 }) {
   return (
       <html lang='en'>
-        <body className={`${poppins.className} pt-[77px]`}>
+        <body className={`${poppins.className} pt-[77px] bg-background-500 `}>
           <ThemeProviders>
             <Header />
             {children}
+            <Footer />
           </ThemeProviders>
         </body>
       </html>

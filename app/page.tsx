@@ -36,7 +36,7 @@ const page = async () => {
   const latestMovie = await populars.results[0];
 
   return (
-    <section className='bg-background-500 pt-[2px]'>
+    <section className='pt-[2px]'>
       <Banner movie={latestMovie} />
       <section className='max-w-[1440px] m-auto px-10 flex flex-col gap-12'>
         <Carousel movies={populars.results} title='Populars 🌟' />
