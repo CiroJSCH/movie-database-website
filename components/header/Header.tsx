@@ -1,7 +1,6 @@
 import { RiMovie2Line } from 'react-icons/ri';
 import DarkModeSwitch from './DarkModeSwitch';
 import MobileMenu from './MobileMenu';
-import Navbar from './Navbar';
 
 const Header = () => {
   const liStyle =
@@ -9,7 +8,7 @@ const Header = () => {
   return (
     <>
       <header>
-        <nav className='fixed top-0 bg-background-600 w-full drop-shadow-lg border-b-primary-400 border-b-2'>
+        <nav className='fixed top-0 bg-background-600 w-full drop-shadow-lg border-b-primary-400 border-b-2 z-[500]'>
           <div className='p-4 flex justify-between items-center max-w-[1440px] mx-auto'>
             <div className='flex items-center bg-primary-500 max-w-[130px] justify-center gap-2 text-[30px] rounded-sm cursor-pointer hover:bg-primary-600 transition-colors duration-300 px-1 text-white'>
               <RiMovie2Line />
@@ -26,7 +25,6 @@ const Header = () => {
             <DarkModeSwitch />
           </div>
         </nav>
-        <Navbar />
         <MobileMenu />
       </header>
     </>
