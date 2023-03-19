@@ -1,6 +1,9 @@
-import React from 'react'
+import { IMovie } from "@/app/models/movie.model"
+interface IProps {
+  movies: IMovie[]
+}
 
-const MovieList = () => {
+const MovieList = ({movies}: IProps) => {
   return (
     <div>MovieList</div>
   )

@@ -1,5 +1,6 @@
 import Pagination from '@/components/movies/Pagination';
 import { getTopRatedMovies, getPopularMovies } from '@/app/utils/fetchMovies';
+import MovieList from '@/components/movies/MovieList';
 
 interface IProps {
   params: {
@@ -13,10 +14,9 @@ const page = async ({ params }: IProps) => {
 
   const movies = filter === "popular" ?  await getPopularMovies(pageNumber) : await getTopRatedMovies(pageNumber);
 
-  console.log(movies)
-
   return (
     <section className='flex flex-col justify-center items-center mt-10'>
+      <MovieList movies={movies.results}/>
       <Pagination filter={filter} pageNumber={pageNumber} />
     </section>
   );
