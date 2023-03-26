@@ -12,11 +12,17 @@ const page = async ({ params }: IProps) => {
   const filter = params.filter[0];
   const pageNumber = params.filter[1];
 
-  const movies = filter === "popular" ?  await getPopularMovies(pageNumber) : await getTopRatedMovies(pageNumber);
+  const movies =
+    filter === 'populars'
+      ? await getPopularMovies(pageNumber)
+      : await getTopRatedMovies(pageNumber);
 
   return (
-    <section className='flex flex-col justify-center items-center pb-7'>
-      <MovieList movies={movies.results}/>
+    <section className='flex flex-col justify-center pb-7 pt-[100px] px-3 md:px-5 lg:px-0 max-w-[1440px] m-auto '>
+      <h2 className='text-[22px] lg:text-[25px] font-medium tracking-[1.15px]'>
+        {filter === 'populars' ? 'Popular' : 'Top Rated'} Movies
+      </h2>
+      <MovieList movies={movies.results} />
       <Pagination filter={filter} pageNumber={pageNumber} />
     </section>
   );

@@ -6,7 +6,7 @@ interface IProps {
 
 const MovieList = ({movies}: IProps) => {
   return (
-    <section className="px-4 md:px-6 xl:px-7 py-6 grid grid-cols-12 gap-3 xl:gap-5 max-w-[1440px] m-auto justify-items-center pt-[100px]">
+    <section className="py-6 grid grid-cols-12 gap-3 xl:gap-5 justify-items-center">
       {
         movies.map(movie => (
           <MovieCard key={movie.id} movie={movie}/>
