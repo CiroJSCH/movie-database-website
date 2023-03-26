@@ -84,7 +84,6 @@ const page = async () => {
           </div>
         </section>
       </div>
-      <Footer />
     </>
   );
 };

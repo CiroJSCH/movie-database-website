@@ -25,7 +25,7 @@ const MovieCard = ({ movie }: IMovieCard) => {
           height={370}
           className='rounded-md'
         />
-        <div className={`${showInfo ? "h-[50%]" : "h-[0px]"} overflow-hidden absolute bg-[rgba(0,0,0,0.7)] bottom-0 w-full transition-[height] duration-1000 ease-in-out`}>
+        <div className={`${showInfo ? "h-[50%]" : "h-[0px]"} hidden lg:block overflow-hidden absolute bg-[rgba(0,0,0,0.7)] bottom-0 w-full transition-[height] duration-1000 ease-in-out`}>
           <div className="p-2 text-txt">
             <div className='flex items-center justify-between mb-2'>
               <div className='badge badge-md p-2'>
