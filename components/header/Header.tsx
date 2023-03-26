@@ -12,7 +12,7 @@ const liStyle =
 const Header = () => {
   const [navBackground, setNavBackground] = useState(false);
 
-  const changeBackground = () => window.scrollY >= 66 ? setNavBackground(true) : setNavBackground(false);
+  const changeBackground = () => window.scrollY >= 10 ? setNavBackground(true) : setNavBackground(false);
 
   useEffect(() => {
     changeBackground();
