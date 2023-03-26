@@ -1,28 +1,48 @@
-import { RiMovie2Line } from 'react-icons/ri';
-import DarkModeSwitch from './DarkModeSwitch';
+'use client';
+
+import { useEffect, useState } from 'react';
+
+import { BiMoviePlay } from 'react-icons/bi';
 import MobileMenu from './MobileMenu';
+import Link from 'next/link';
+
+const liStyle =
+  'cursor-pointer hover:text-secondary-500 transition-colors duration-300 text-[17px] leading-[25px]';
 
 const Header = () => {
-  const liStyle =
-    'cursor-pointer hover:text-primary-500 transition-colors duration-300 text-[17px] leading-[25px]';
+  const [navBackground, setNavBackground] = useState(false);
+
+  const changeBackground = () => window.scrollY >= 66 ? setNavBackground(true) : setNavBackground(false);
+
+  useEffect(() => {
+    changeBackground();
+    window.addEventListener('scroll', changeBackground);
+
+    return () => {
+      window.removeEventListener('scroll', changeBackground);
+    }
+  });
+
   return (
     <>
-      <header>
-        <nav className='fixed top-0 bg-background-600 w-full drop-shadow-lg border-b-primary-400 border-b-2 z-[500]'>
-          <div className='p-4 flex justify-between items-center max-w-[1440px] mx-auto'>
-            <div className='flex items-center bg-primary-500 max-w-[130px] justify-center gap-2 text-[30px] rounded-sm cursor-pointer hover:bg-primary-600 transition-colors duration-300 px-1 text-white'>
-              <RiMovie2Line />
-              <span>IMBb</span>
-            </div>
-            <div className='hidden md:block items-center'>
-              <ul className='flex text-alternative gap-7 font-semibold'>
-                <li className={liStyle}>Movies</li>
-                <li className={liStyle}>Series</li>
-                <li className={liStyle}>TV Shows</li>
-                <li className={liStyle}>Favorites</li>
-              </ul>
-            </div>
-            <DarkModeSwitch />
+      <header className={`p-7 xl:pt-8 fixed top-0 z-[200] w-full transition-colors duration-300 ${navBackground ? "bg-black" : "bg-transparent"}`}>
+        <nav className='m-auto w-full max-w-[1440px] flex items-center justify-between'>
+          <div className='flex items-center gap-2 text-[22px] md:text-[24px] font-bold'>
+            <BiMoviePlay className='text-txt' />
+            <p className='text-primary-400'>IMBb Clone</p>
+          </div>
+          <div className='hidden md:flex'>
+            <ul className='text-txt text-[19px] uppercase tracking-[1.25px] flex gap-7 xl:gap-9 2xl:gap-12'>
+              <Link href='/' className={liStyle}>
+                Home
+              </Link>
+              <Link href='/movies/populars/1' className={liStyle}>
+                Populars
+              </Link>
+              <Link href='/movies/top-rated/1' className={liStyle}>
+                Top Rated
+              </Link>
+            </ul>
           </div>
         </nav>
         <MobileMenu />

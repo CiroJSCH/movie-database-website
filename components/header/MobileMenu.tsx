@@ -19,7 +19,7 @@ const MobileMenu = () => {
   return (
     <>
       <div
-        className='rounded-full bg-secondary-400 z-[500] fixed bottom-2 right-2 text-[35px] text-white p-1 cursor-pointer hover:bg-secondary-500 transition-colors duration-300 md:hidden'
+        className='z-[500] fixed top-6 right-3 text-[35px] text-white p-1 cursor-pointer md:hidden'
         onClick={toggleMenu}
       >
         {isOpenMenu ? <AiOutlineMenuUnfold /> : <AiOutlineMenuFold />}

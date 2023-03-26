@@ -1,48 +1,91 @@
-import Carousel from '@/components/carousel/Carousel';
+import TrendingCarousel from '@/components/carousel/TrendingCarousel';
+import UpcomingCarousel from '@/components/carousel/UpcomingCarousel';
 import Banner from '@/components/home/Banner';
-
-const API_KEY = process.env.API_KEY;
-
-const getPopularMovies = async () => {
-  const res = await fetch(
-    `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`,
-    { next: { revalidate: 1000000 } }
-  );
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
-  return res.json();
-};
-
-const getTrendingMovies = async () => {
-  const res = await fetch(
-    `
-  https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`,
-    { next: { revalidate: 1000000 } }
-  );
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
-  return res.json();
-};
+import { AiFillFire, AiOutlineRight, AiFillStar, AiFillBell } from 'react-icons/ai';
+import Link from 'next/link';
+import { IMovie } from './models/movie.model';
+import PopularCard from '@/components/home/PopularCard';
+import { getTopRatedMovies, getPopularMovies, getUpcomingMovies } from './utils/fetchMovies';
+import Footer from '@/components/home/Footer';
 
 const page = async () => {
   const popularsResults = await getPopularMovies();
-  const trendingResults = await getTrendingMovies();
-  const [populars, trending] = await Promise.all([
+  const topRatedResults = await getTopRatedMovies();
+  const upcomingResults = await getUpcomingMovies();
+  const [populars, topRated, upcoming] = await Promise.all([
     popularsResults,
-    trendingResults,
+    topRatedResults,
+    upcomingResults
   ]);
   const latestMovie = await populars.results[0];
 
   return (
-    <section className='pt-[2px]'>
-      <Banner movie={latestMovie} />
-      <section className='max-w-[1440px] m-auto px-10 flex flex-col gap-12'>
-        <Carousel movies={populars.results} title='Populars 🌟' />
-        <Carousel movies={trending.results} title='Trending 🔥' />
-      </section>
-    </section>
+    <>
+      <Banner latestMovie={latestMovie} />
+      <div className='mt-5 p-4 md:p-8 xl:p-10 mb-7'>
+        <section>
+          <div className='flex items-center justify-between flex-wrap gap-2'>
+            <div className='flex items-center gap-3 text-[22px] md:text-[24px] xl:text-[30px] font-bold'>
+              <h3 className='text-txt'>Top rated</h3>
+              <AiFillFire className='text-primary-400' />
+            </div>
+            <Link
+              href='/movies/trending/1'
+              className='text-[18px] flex items-center gap-2 font-bold cursor-pointer text-alternative hover:text-txt transition-colors duration-200'
+            >
+              <p>View All</p>
+              <AiOutlineRight className='text-txt' />
+            </Link>
+          </div>
+          <div className='mt-7 rounded-lg'>
+            <TrendingCarousel movies={topRated.results} />
+          </div>
+        </section>
+        <section className='mt-10'>
+          <div className='flex items-center justify-between flex-wrap gap-2'>
+            <div className='flex items-center gap-3 text-[22px] md:text-[24px] xl:text-[30px] font-bold'>
+              <h3 className='text-txt'>Populars</h3>
+              <AiFillStar className='text-primary-400' />
+            </div>
+            <Link
+              href='/movies/popular/1'
+              className='text-[18px] flex items-center gap-2 font-bold cursor-pointer text-alternative hover:text-txt transition-colors duration-200'
+            >
+              <p>View All</p>
+              <AiOutlineRight className='text-txt' />
+            </Link>
+          </div>
+          <div className='grid grid-cols-12 max-w-[340px] sm:max-w-none xl:max-w-none xl m-auto mt-7 gap-3'>
+            <>
+              {populars.results
+                .slice(0, 7)
+                .map((result: IMovie, index: number) => (
+                  <PopularCard key={result.id} result={result} index={index} />
+                ))}
+            </>
+          </div>
+        </section>
+        <section className='mt-10'>
+          <div className='flex items-center justify-between flex-wrap gap-2'>
+            <div className='flex items-center gap-3 text-[22px] md:text-[24px] xl:text-[30px] font-bold'>
+              <h3 className='text-txt'>Upcoming</h3>
+              <AiFillBell className='text-primary-400' />
+            </div>
+            <Link
+              href='/movies/upcoming/1'
+              className='text-[18px] flex items-center gap-2 font-bold cursor-pointer text-alternative hover:text-txt transition-colors duration-200'
+            >
+              <p>View All</p>
+              <AiOutlineRight className='text-txt' />
+            </Link>
+          </div>
+          <div className='mt-7'>
+            <UpcomingCarousel movies={upcoming.results}/>
+          </div>
+        </section>
+      </div>
+      <Footer />
+    </>
   );
 };
 

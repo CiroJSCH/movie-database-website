@@ -1,41 +1,51 @@
 import { IMovie } from '@/app/models/movie.model';
 import Image from 'next/image';
-import { MdStars } from 'react-icons/md';
-import { BiLike } from 'react-icons/bi';
-
 interface IProps {
-  movie: IMovie;
+  latestMovie: IMovie;
 }
 
-const Banner = ({ movie }: IProps) => {
+const Banner = ({ latestMovie }: IProps) => {
   return (
-    <div className='h-[380px] md:h-[450px] lg:h-[750px] relative overflow-x-hidden mb-10'>
-      <Image
-        alt='movie banner'
-        src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
-        className='object-fit'
-        fill
-        priority
-      />
-      <div className='absolute bottom-0 bg-[rgba(0,0,0,0.3)] w-full p-3 lg:p-5 xl:px-10'>
-        <h1 className='text-primary-400 font-bold text-[30px] md:text-[45px] lg:text-[52px]'>
-          {movie.original_title}
-        </h1>
-        <p className='text-white mt-2 md:text-[17px] lg:text-[18px] max-w-[450px] md:max-w-[500px] lg:max-w-[550px] xl:max-w-[600px] leading-[27px] md:leading-[30px] lg:leading-[35px]'>
-          {movie.overview.substring(0, 100)}...
-        </p>
-        <div className='hidden md:flex gap-3 mt-4'>
-          <div className='flex items-center gap-3 py-3 px-6 text-[18px] rounded-xl bg-secondary-400'>
-            <MdStars />
-            <span>{movie.vote_average}</span>
-          </div>
-          <div className='flex items-center gap-3 py-3 px-6 text-[18px] rounded-xl bg-alternative'>
-            <BiLike />
-            <span>{movie.vote_count}</span>
+    <section className='flex items-center relative overflow-hidden'>
+      <div className='background-home h-screen flex justify-center flex-col p-7 md:p-8 xl:p-10 z-[100] w-full'>
+        <div className='font-bold max-w-[1440px] m-auto w-full'>
+          <p className='text-primary-400 text-[20px] md:text-[24px] xl:text-[30px]'>
+            IMBb Clone
+          </p>
+          <p className='max-w-[700px] text-txt text-[32px] md:text-[40px] xl:text-[56px] mt-2 leading-[50px] xl:leading-[70px]'>
+            Unlimited <span className='text-primary-400'>Movies</span>, TV Shows
+            & More
+          </p>
+          <div className='border border-alternative max-w-[470px] xl:max-w-[520px] 2xl:max-w-[600px] mt-4 md:mt-7 flex flex-col items-center justify-center stats stats-vertical bg-background-600 text-primary-content'>
+            <div className='stat'>
+              <div className='stat-title'>Users</div>
+              <div className='stat-value'>100.000</div>
+              <div className='stat-actions'>
+                <button className='btn btn-sm btn-success'>
+                  Top Movie site
+                </button>
+              </div>
+            </div>
+
+            <div className='stat'>
+              <div className='stat-title'>Page Views</div>
+              <div className='stat-value'>+1.5M</div>
+              <div className='stat-actions'>
+                <button className='btn btn-sm'>Updated every day</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <div className='absolute w-[1600px] xl:w-screen h-[1300px] xl:h-screen  z-0'>
+        <Image
+          src={`https://image.tmdb.org/t/p/original/${latestMovie.backdrop_path}`}
+          alt='banner'
+          fill
+          priority
+        />
+      </div>
+    </section>
   );
 };
 

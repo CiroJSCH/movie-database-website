@@ -11,8 +11,8 @@
     --secondary-400: #0dcad4;
     --secondary-500: #12aab3;
     --alternative: #707373;
-    --background-500: #23272f;
-    --background-600: #171718;
+    --background-500: #171718;
+    --background-600: #101314;
     --txt: #fafafa;
   }
 
@@ -30,20 +30,11 @@
   }
 }
 
-.slick-slide > div {
-  display: grid;
-  place-items: center;
-  margin: auto;
-  padding: 0px;
+.slick-slider .slick-slide {
+  padding: 0 15px;
 }
 
-.glassmorphism {
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0px 0px 15px 2px var(--primary-700);
--webkit-box-shadow: 0px 0px 15px 2px var(--primary-700);
--moz-box-shadow: 0px 0px 15px 2px var(--primary-700);
-  backdrop-filter: blur(11px);
-  -webkit-backdrop-filter: blur(11px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+.background-home {
+  background: rgb(0,0,0,0.7);
+  background: linear-gradient(142deg, rgba(0,0,0,90%) 50%, rgba(23,23,24,0.6) 60%);
 }

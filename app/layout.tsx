@@ -7,7 +7,7 @@ import Footer from '@/components/home/Footer';
 
 const poppins = Poppins({
   weight: ['300', '400', '500', '700'],
-  subsets: ['latin']
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
@@ -41,14 +41,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-      <html lang='en'>
-        <body className={`${poppins.className} pt-[77px] bg-background-500 `}>
-          <ThemeProviders>
-            <Header />
-            {children}
-            <Footer />
-          </ThemeProviders>
-        </body>
-      </html>
+    <html lang='en'>
+      <body className={`${poppins.className} bg-background-600`}>
+        <ThemeProviders>
+          <Header />
+          {children}
+          {/* <Footer /> */}
+        </ThemeProviders>
+      </body>
+    </html>
   );
 }
