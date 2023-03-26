@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { IMovie } from './models/movie.model';
 import PopularCard from '@/components/home/PopularCard';
 import { getTopRatedMovies, getPopularMovies, getUpcomingMovies } from './utils/fetchMovies';
-import Footer from '@/components/home/Footer';
 
 const page = async () => {
   const popularsResults = await getPopularMovies();
@@ -30,7 +29,7 @@ const page = async () => {
               <AiFillFire className='text-primary-400' />
             </div>
             <Link
-              href='/movies/trending/1'
+              href='/movies/top-rated/1'
               className='text-[18px] flex items-center gap-2 font-bold cursor-pointer text-alternative hover:text-txt transition-colors duration-200'
             >
               <p>View All</p>
@@ -89,3 +88,9 @@ const page = async () => {
 };
 
 export default page;
+
+
+// TODO: Upcoming route
+// TODO: Fix mobile menu
+// TODO: Search movies
+// TODO: Improve project organization
