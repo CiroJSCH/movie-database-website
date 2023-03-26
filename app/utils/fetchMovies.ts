@@ -26,7 +26,7 @@ export const getPopularMovies = async (page: string = '1') => {
 
 export const getUpcomingMovies = async (page: string = '1') => {
   const res = await fetch(`
-    https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`);
+    https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=${page}`);
   if (!res.ok) {
     throw new Error('Failed to fetch upcoming movies');
   }
