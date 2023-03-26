@@ -42,6 +42,9 @@ const Header = () => {
               <Link href='/movies/top-rated/1' className={liStyle}>
                 Top Rated
               </Link>
+              <Link href='/movies/upcoming/1' className={liStyle}>
+                Upcoming
+              </Link>
             </ul>
           </div>
         </nav>
