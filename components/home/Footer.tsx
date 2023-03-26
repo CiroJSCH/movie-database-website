@@ -5,6 +5,7 @@ import {
   AiFillLinkedin,
 } from 'react-icons/ai';
 import { BiMoviePlay } from 'react-icons/bi';
+import Link from 'next/link';
 
 const iconStyle =
   'text-[28px] cursor-pointer hover:text-secondary-500 hover:-translate-y-1 transition-all duration-300';
@@ -16,7 +17,8 @@ const socialIcons = [
   <AiFillLinkedin key={3} className={iconStyle} />,
 ];
 
-const footerLinkStyle = "cursor-pointer hover:text-secondary-400 transition-colors duration-200";
+const footerLinkStyle =
+  'cursor-pointer hover:text-secondary-400 transition-colors duration-200';
 
 const Footer = () => {
   return (
@@ -32,10 +34,13 @@ const Footer = () => {
       <section className='bg-background-600 py-6 px-3 lg:px-7'>
         <div className='max-w-[1440px] m-auto grid grid-cols-12 gap-6 lg:gap-10 lg:justify-items-end'>
           <div className='col-span-12 lg:col-span-3 flex flex-col items-center lg:items-start'>
-            <div className='flex items-center gap-2 text-[22px] md:text-[24px] font-bold'>
+            <Link
+              href='/'
+              className='flex items-center gap-2 text-[22px] md:text-[24px] font-bold'
+            >
               <BiMoviePlay className='text-txt' />
               <p className='text-primary-400'>IMBb Clone</p>
-            </div>
+            </Link>
             <p className='mt-2 leading-[27.5px] max-w-[350px] lg:max-w-none text-center lg:text-left'>
               Lorem ipsum dolor sit amet consectetur, adipisicing elit.
               Pariatur, quas nostrum? Reiciendis nam animi, dignissimos libero,

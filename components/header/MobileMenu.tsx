@@ -55,10 +55,10 @@ const MobileMenu = () => {
           </Link>
         </ul>
         <div className='flex flex-col items-center gap-3'>
-          <div className='flex items-center gap-2 text-[22px] md:text-[24px] font-bold'>
+          <Link href="/home" className='flex items-center gap-2 text-[22px] md:text-[24px] font-bold'>
             <BiMoviePlay className='text-txt' />
             <p className='text-primary-400'>IMBb Clone</p>
-          </div>
+          </Link>
           <p className='text-alternative text-[12.5px]'>
             Copyright © 2022 - {new Date().getFullYear()} IMBb Clone
           </p>
