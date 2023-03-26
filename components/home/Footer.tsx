@@ -16,6 +16,8 @@ const socialIcons = [
   <AiFillLinkedin key={3} className={iconStyle} />,
 ];
 
+const footerLinkStyle = "cursor-pointer hover:text-secondary-400 transition-colors duration-200";
+
 const Footer = () => {
   return (
     <footer>
@@ -40,36 +42,21 @@ const Footer = () => {
               eaque dolorum laudantium
             </p>
           </div>
-          <div className='col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 flex flex-col items-center text-center'>
-            <p className='text-[20px] text-txt font-bold tracking-[1.15px]'>
-              Links
-            </p>
-            <ul className='mt-2 flex flex-col gap-3'>
-              <li>Lorem ipsum dolor sit amet</li>
-              <li>Lorem ipsum dolor sit amet</li>
-              <li>Lorem ipsum dolor sit amet</li>
-            </ul>
-          </div>
-          <div className='col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 flex flex-col items-center text-center'>
-            <p className='text-[20px] text-txt font-bold tracking-[1.15px]'>
-              Links
-            </p>
-            <ul className='mt-2 flex flex-col gap-3'>
-              <li>Lorem ipsum dolor sit amet</li>
-              <li>Lorem ipsum dolor sit amet</li>
-              <li>Lorem ipsum dolor sit amet</li>
-            </ul>
-          </div>
-          <div className='col-span-12 md:col-span-4 lg:col-span-3 flex flex-col items-center text-center lg:text-left'>
-            <p className='text-[20px] text-txt font-bold tracking-[1.15px]'>
-              Links
-            </p>
-            <ul className='mt-2 flex flex-col gap-3'>
-              <li>Lorem ipsum dolor sit amet</li>
-              <li>Lorem ipsum dolor sit amet</li>
-              <li>Lorem ipsum dolor sit amet</li>
-            </ul>
-          </div>
+          {[0, 1, 2].map((part) => (
+            <div
+              key={`footer-${part}`}
+              className='col-span-12 md:col-span-4 lg:col-span-3 flex flex-col items-center xl:items-start text-center xl:text-left'
+            >
+              <p className='text-[20px] text-txt font-bold tracking-[1.15px]'>
+                Links
+              </p>
+              <ul className='mt-2 flex flex-col gap-3'>
+                <li className={footerLinkStyle}>Link #1</li>
+                <li className={footerLinkStyle}>Link #2</li>
+                <li className={footerLinkStyle}>Link #3</li>
+              </ul>
+            </div>
+          ))}
         </div>
       </section>
       <section className='bg-black py-4 px-3'>
