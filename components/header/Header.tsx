@@ -91,12 +91,9 @@ const Header = () => {
               onClick={() => setOpenSearch(true)}
             />
           )}
-          <div
-            className={`absolute lg:relative -bottom-[3px] flex md:right-0 md:-bottom-[55px] lg:-bottom-0 max-w-[500px] items-center rounded-lg drop-shadow-md ${
-              openSearch
-                ? 'w-[85%] lg:w-[250px] xl:w-[300px]'
-                : 'w-0 lg:w-[250px] xl:w-[300px]'
-            } transition-[width] duration-500 ease-in`}
+          {
+            openSearch ? <div
+            className={`absolute lg:relative -bottom-[3px] flex md:right-0 md:-bottom-[55px] lg:-bottom-0 max-w-[500px] items-center rounded-lg drop-shadow-md w-[85%] md:w-[50%] lg:w-[250px] xl:w-[300px]`}
           >
             <input
               type='text'
@@ -113,7 +110,8 @@ const Header = () => {
             >
               GO
             </button>
-          </div>
+          </div> : null
+          }
         </nav>
         <MobileMenu />
       </header>
