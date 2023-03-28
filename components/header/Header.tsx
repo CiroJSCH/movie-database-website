@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { BiMoviePlay } from 'react-icons/bi';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { CgClose } from 'react-icons/cg';
+import useMediaQuery from '@/app/hooks/useMediaQuery';
 
 import MobileMenu from './MobileMenu';
 import Link from 'next/link';
@@ -14,6 +15,7 @@ const liStyle =
 
 const Header = () => {
 
+  const isDesktop = useMediaQuery('(min-width: 1024px)')
   const router = useRouter();
 
   const [navBackground, setNavBackground] = useState(false);
@@ -92,7 +94,7 @@ const Header = () => {
             />
           )}
           {
-            openSearch ? <div
+            openSearch || isDesktop ? <div
             className={`absolute lg:relative -bottom-[3px] flex md:right-0 md:-bottom-[55px] lg:-bottom-0 max-w-[500px] items-center rounded-lg drop-shadow-md w-[85%] md:w-[50%] lg:w-[250px] xl:w-[300px]`}
           >
             <input
