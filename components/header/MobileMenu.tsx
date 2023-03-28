@@ -10,6 +10,7 @@ import {
   AiFillStar,
   AiFillFire,
   AiFillBell,
+  AiOutlineSearch
 } from 'react-icons/ai';
 import Link from 'next/link';
 
@@ -26,7 +27,7 @@ const MobileMenu = () => {
   return (
     <>
       <div
-        className='z-[500] fixed top-6 right-3 text-[35px] text-white p-1 cursor-pointer md:hidden'
+        className='z-[500] fixed bottom-6 right-3 text-[35px] text-white p-2 cursor-pointer md:hidden bg-black rounded-full border border-primary-600'
         onClick={toggleMenu}
       >
         {isOpenMenu ? <AiOutlineMenuUnfold /> : <AiOutlineMenuFold />}

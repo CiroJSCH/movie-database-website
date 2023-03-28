@@ -89,8 +89,5 @@ const page = async () => {
 
 export default page;
 
-
-// TODO: Upcoming route
-// TODO: Fix mobile menu
 // TODO: Search movies
 // TODO: Improve project organization

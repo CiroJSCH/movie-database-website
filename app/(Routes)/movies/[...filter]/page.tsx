@@ -24,7 +24,7 @@ const page = async ({ params }: IProps) => {
       : await getUpcomingMovies(pageNumber);
 
   return (
-    <section className='flex flex-col justify-center pb-7 pt-[100px] px-3 md:px-5 lg:px-0 max-w-[1440px] m-auto '>
+    <>
       <h2 className='text-[22px] lg:text-[25px] font-medium tracking-[1.15px]'>
         {filter === 'populars'
           ? 'Popular'
@@ -35,7 +35,7 @@ const page = async ({ params }: IProps) => {
       </h2>
       <MovieList movies={movies.results} />
       <Pagination filter={filter} pageNumber={pageNumber} />
-    </section>
+    </>
   );
 };
 
