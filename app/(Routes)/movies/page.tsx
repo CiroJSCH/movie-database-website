@@ -14,7 +14,9 @@ const page = async ({ searchParams }: IProps) => {
       <h2 className='text-[22px] lg:text-[25px] font-medium tracking-[1.15px]'>
         Search results for {searchParams.search}
       </h2>
-      <MovieList movies={search.results} />
+      {
+        search !== undefined && <MovieList movies={search.results} />
+      }
     </>
   );
 };
