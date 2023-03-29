@@ -16,7 +16,7 @@ Movie website created using The Movie Database api, to get the best rated, popul
 ## Links
 
 - [Code](https://github.com/CiroJSCH/movie-database-website)
-- [Deploy](https://movie-database-website-6s4u124kw-cirojsch.vercel.app/movie/76600)
+- [Deploy](https://movie-database-website-6s4u124kw-cirojsch.vercel.app/)
 
 ## Getting Started
 
