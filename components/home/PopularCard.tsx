@@ -42,6 +42,9 @@ const PopularCard = ({ result, index }: IProps) => {
         className='absolute rounded-lg'
         src={`https://image.tmdb.org/t/p/original/${result.backdrop_path}`}
         alt='Movie banner'
+        sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
       />
       <div className='flex items-center justify-between absolute bottom-0 h-[30%] md:h-[25%] lg:h-[20%] w-full p-3 bg-[rgba(0,0,0,0.8)]'>
         <div className='flex flex-col gap-1'>
