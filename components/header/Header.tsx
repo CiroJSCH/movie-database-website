@@ -24,6 +24,8 @@ const Header = () => {
 
   const [searchError, setSearchError] = useState('');
 
+  const [isLoading, setIsLoading] = useState(true);
+
   const changeBackground = () =>
     window.scrollY >= 10 ? setNavBackground(true) : setNavBackground(false);
 
@@ -31,10 +33,12 @@ const Header = () => {
     changeBackground();
     window.addEventListener('scroll', changeBackground);
 
+    setIsLoading(false);
+
     return () => {
       window.removeEventListener('scroll', changeBackground);
     };
-  });
+  }, [isLoading]);
 
   const handleSearch = () => {
     if (searchValue === '') {
@@ -51,7 +55,8 @@ const Header = () => {
 
   return (
     <>
-      <header
+      {
+        !isLoading && <header
         className={`p-7 xl:pt-8 fixed top-0 z-[200] w-full transition-colors duration-300 ${
           navBackground ? 'bg-black' : 'bg-transparent'
         }`}
@@ -93,9 +98,8 @@ const Header = () => {
               onClick={() => setOpenSearch(true)}
             />
           )}
-          {
-            openSearch || isDesktop ? <div
-            className={`absolute lg:relative -bottom-[3px] flex md:right-0 md:-bottom-[55px] lg:-bottom-0 max-w-[500px] items-center rounded-lg drop-shadow-md w-[85%] md:w-[50%] lg:w-[250px] xl:w-[300px]`}
+         <div
+            className={`${openSearch || isDesktop ? "flex" : "hidden"} absolute lg:relative -bottom-[3px] md:right-0 md:-bottom-[55px] lg:-bottom-0 max-w-[500px] items-center rounded-lg drop-shadow-md w-[85%] md:w-[50%] lg:w-[250px] xl:w-[300px]`}
           >
             <input
               type='text'
@@ -112,11 +116,11 @@ const Header = () => {
             >
               GO
             </button>
-          </div> : null
-          }
+          </div>
         </nav>
         <MobileMenu />
       </header>
+      }
     </>
   );
 };
